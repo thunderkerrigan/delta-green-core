@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    // "jsx": "react",
+    // "target": "ES5",
+    // "module": "CommonJS",
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
+  },
+  "include": [
+    "src",
+    "custom_typings/**/*",
+  ]
+}

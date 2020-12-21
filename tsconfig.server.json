@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["ES2015", "ES6", "ESNext"],
+    // "declaration": true,
+    // "declarationMap": true,
+    "sourceMap": true,
+  },
+  "exclude": [
+    "src/react",
+    "src/webpack.config.ts"
+  ]
+}
