@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "engines": {
-        "node": "^13.7.0",
+        "node": "^14.13.0",
         "npm": ">= 6.13.6",
         "yarn": ">= 1.22.0"
     },
@@ -14,8 +14,6 @@
         "dev": "concurrently \"yarn:build:dev\" \"yarn:start:dev\""
     },
     "dependencies": {
-        "express": "^4.17.1",
-        "express-fileupload": "^1.2.0",
         "mongoose": "^5.11.8"
     },
     "devDependencies": {

@@ -1,6 +1,6 @@
 import fs, { Stats } from 'fs'
 import path from 'path'
-import { roll } from '../../utils/dice'
+import { roll } from '../utils/dice'
 import { CharacterModel, Stat } from '../models/CharacterModel'
 
 export class CharacterManager {
