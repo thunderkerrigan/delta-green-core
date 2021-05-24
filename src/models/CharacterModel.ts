@@ -20,20 +20,24 @@ export type Stat =
     | 'Intelligence'
     | 'Pouvoir'
 
-export type skills =
-    | 'Baratin'
-    | 'Arme à feu'
-    | 'Bibliothèque'
-    | 'Discretion'
-    | 'Dissimulation'
-    | 'Bricolage'
-    | 'Criminalistique'
-    | 'Vigilance'
-    | 'Trouver objet caché'
-    | 'Écouter'
-    | 'Persuasion'
-    | 'Négociation'
-    | 'Perspicacité'
-    | 'Corps à corps'
-    | 'Arme de poing'
-    | 'Sciences'
+export type skills = knowledgeSkills | expertiseSkills | sensorialSkills | actionSkills | influenceSkills
+
+
+
+export type knowledgeSkills = 'Bureaucratie'
+    | 'Culture artistique'
+    | 'Langue maternelle'
+    | 'Mythe de Cthulhu'
+    | 'Sciences de la terre'
+    | 'Sciences de la vie'
+    | 'Sciences formelles'
+    | 'Sciences humaines'
+    | 'Sciences occultes'
+
+export type expertiseSkills = 'Bricolage' | 'Criminalistique' | 'Hypnose' | 'Médecine' | 'Métier' | 'Compatibilité' | 'Informatique' | 'Photographie' | 'Pratique artistique' | 'Premiers soins' | 'Psychanalyse' | 'Survie'
+
+export type sensorialSkills = 'Bibliothèque' | 'Discrétion' | 'Dissimulation' | 'Écouter' | 'Orientation' | 'Pister' | 'Psychologie' | 'Se cacher' | 'Trouver Objet Caché' | 'Vigilance'
+
+export type influenceSkills = 'Baratin' | 'Contacts & Ressources' | 'Crédit' | 'Imposture' | 'Interroger' | 'Jeu' | 'Négociation' | 'Perspicacité' | 'Persuasion' | 'Savoir-vivre'
+
+export type actionSkills = 'Armes à feu' | 'Armes blanches' | 'Armes exotiques' | 'Artillerie' | 'Athlétisme' | 'Conduite' | 'Corps à corps' | 'Équitation' | 'Navigation' | 'Piloter'

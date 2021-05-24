@@ -1,7 +1,0 @@
-const makeTMSIP = () => {
-
-};
-
-const makeSiteID = () => {
-
-};
