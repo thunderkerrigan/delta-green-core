@@ -1,12 +1,22 @@
 type gender = 'male' | 'female' | 'non-binary'
 
-export interface CharacterModel {
+
+export interface CharacterModel extends CharacterSkills{
     firstName: string
     lastName: string
     gender: gender
     portrait?: string
     stats: Record<Stat, number>
-    skills: Record<skills | string, number>
+    
+}
+
+export interface CharacterSkills {
+    knowledgeSkills: Record<knowledgeSkills, number>
+    expertiseSkills: Record<expertiseSkills, number>
+    sensorialSkills: Record<sensorialSkills, number>
+    influenceSkills: Record<influenceSkills, number>
+    actionSkills: Record<actionSkills, number>
+    otherSkills?: Record<string, number>
 }
 
 export type Stat =
