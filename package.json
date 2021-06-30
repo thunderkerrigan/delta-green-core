@@ -15,7 +15,8 @@
         "dev": "concurrently \"yarn:build:dev\" \"yarn:start:dev\""
     },
     "dependencies": {
-        "mongoose": "^5.11.8"
+        "mongoose": "^5.11.8",
+        "node-fetch": "^2.6.1"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.12.11",
@@ -24,6 +25,7 @@
         "@types/express-fileupload": "^1.1.5",
         "@types/jest": "^26.0.19",
         "@types/node": "^15.12.5",
+        "@types/node-fetch": "^2.5.10",
         "concurrently": "^6.0.0",
         "jest": "^27.0.5",
         "nodemon": "^2.0.5",
