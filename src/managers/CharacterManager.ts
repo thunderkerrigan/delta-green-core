@@ -1,5 +1,3 @@
-import fs, { Stats } from "fs";
-import path from "path";
 import { roll } from "../utils/dice";
 import {
   actionSkills,
@@ -12,37 +10,8 @@ import {
   skills,
   Stat,
 } from "../models/CharacterModel";
-import { FemaleFirstName } from "../config/FemaleFirstName";
-import { MaleFirstName } from "../config/MaleFirstName";
-import { LastName } from "../config/LastName";
+import { getRandomCharacter } from "../services/RandomUserService";
 export class CharacterManager {
-  private femaleFirstNamesPool: string[];
-  private maleFirstNamesPool: string[];
-  private lastNamesPool: string[];
-  
-  constructor() {
-    this.femaleFirstNamesPool = FemaleFirstName;
-    this.maleFirstNamesPool = MaleFirstName;
-    this.lastNamesPool = LastName;
-  }
-
-  private randomLastName = () => {
-    return this.randomName(this.lastNamesPool);
-  };
-
-  private randomMaleFirstName = () => {
-    return this.randomName(this.maleFirstNamesPool);
-  };
-
-  private randomFemaleFirstName = () => {
-    return this.randomName(this.femaleFirstNamesPool);
-  };
-
-  private randomName = (pool: string[]) => {
-    const index = Math.round(Math.random() * pool.length);
-    return pool[index];
-  };
-
   private rollStats = (): number => {
     const rolls = [0, 0, 0, 0];
     const _map = rolls.map(() => roll(6));
@@ -165,30 +134,17 @@ export class CharacterManager {
     };
   };
 
-  public randomMaleCharacter = (): CharacterModel => {
-    const lastName = this.randomLastName();
-    const firstName = this.randomMaleFirstName();
+  public randomCharacter = async (
+    gender: "male" | "female"
+  ): Promise<CharacterModel> => {
+    const { name, picture } = await getRandomCharacter(gender);
     const stats = this.randomStats();
     const skills = this.randomSkills(stats);
     return {
-      firstName,
-      lastName,
-      gender: "male",
-      portrait: "none.png",
-      stats,
-      ...skills,
-    };
-  };
-  public randomFemaleCharacter = (): CharacterModel => {
-    const lastName = this.randomLastName();
-    const firstName = this.randomFemaleFirstName();
-    const stats = this.randomStats();
-    const skills = this.randomSkills(stats);
-    return {
-      firstName,
-      lastName,
-      gender: "female",
-      portrait: "none.png",
+      firstName: name.first,
+      lastName: name.last,
+      gender,
+      portrait: picture.medium,
       stats,
       ...skills,
     };
