@@ -3,12 +3,12 @@ export {
   CharacterModel,
   CharacterSkills,
   Stat,
-  skills,
-  knowledgeSkills,
-  expertiseSkills,
-  sensorialSkills,
-  influenceSkills,
-  actionSkills,
+  Skills,
+  KnowledgeSkills,
+  ExpertiseSkills,
+  SensorialSkills,
+  InfluenceSkills,
+  ActionSkills,
 } from "./models/CharacterModel";
 
 export { DossierInterface, ArticleInterface } from "./models/DossierModel";
