@@ -13,6 +13,7 @@ import {
 import { getRandomCharacter } from "../services/RandomUserService";
 import { Job } from "../models/JobModel";
 import { jobs } from "../config/Job";
+import { v4 as uuidV4 } from "uuid";
 
 export class CharacterManager {
   private randomSkills = (
@@ -194,21 +195,25 @@ export class CharacterManager {
   };
 
   public randomCharacter = async (
+    requestSeed?: string,
     requestedGender?: "male" | "female"
   ): Promise<CharacterModel> => {
-    const { name, picture, gender, dob, nat, location } =
-      await getRandomCharacter(requestedGender);
+    const { seed, name, picture, gender, dob, nat, location, cell } =
+      await getRandomCharacter(requestSeed, requestedGender);
     const stats = this.randomStats();
     const job = this.randomJob();
     const skills = this.randomSkills(stats, job);
     const employer = this.randomEmployer();
     return {
+      id: uuidV4(),
+      seed,
       firstName: name.first,
       lastName: name.last,
       clearanceLevel: roll(5, 0) as ClearanceLevel,
       gender,
       profession: job,
       employer,
+      cellPhone: cell,
       nationality: nat,
       educationAndOccupationalHistory: `${location.coordinates.latitude}${location.coordinates.longitude}`,
       age: dob.age,

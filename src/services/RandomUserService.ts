@@ -21,6 +21,7 @@ type Nationality =
 type Gender = "male" | "female";
 
 interface RandomUser {
+  seed: string;
   gender: Gender;
   name: { title: string; first: string; last: string };
   location: {
@@ -37,6 +38,7 @@ interface RandomUser {
     name: string;
     value: string;
   };
+  cell: string;
   picture: {
     large: string;
     medium: string;
@@ -50,18 +52,25 @@ interface RandomUser {
 }
 
 export const getRandomCharacter = async (
+  requestedSeed?: string,
   gender?: Gender,
   nat?: Nationality
 ): Promise<RandomUser> => {
-  const inc = "gender,name,location,id,picture,nat,dob";
+  const inc = "gender,name,location,id,picture,nat,dob, cell";
   const {
-    data: { results },
-  } = await axios.get<{ results: RandomUser[] }>("https://randomuser.me/api/", {
-    params: { inc, gender, nat, noinfo: true },
+    data: {
+      results,
+      info: { seed },
+    },
+  } = await axios.get<{
+    results: Omit<RandomUser, "seed">[];
+    info: { seed: string };
+  }>("https://randomuser.me/api/", {
+    params: { inc, gender, nat, seed: requestedSeed },
   });
 
   if (results.length > 0) {
-    return results[0];
+    return { ...results[0], seed };
   }
   throw new Error("no random character.");
 };

@@ -4,11 +4,14 @@ type gender = "male" | "female" | "non-binary";
 export type ClearanceLevel = 0 | 1 | 2 | 3 | 4 | 5;
 
 export interface CharacterModel extends CharacterSkills {
+  id: string;
+  seed: string;
   firstName: string;
   lastName: string;
   clearanceLevel: ClearanceLevel;
   age: number;
   dob: string;
+  cellPhone: string;
   profession: Job;
   employer: string;
   nationality: string;
