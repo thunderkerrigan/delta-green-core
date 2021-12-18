@@ -11,6 +11,7 @@ export {
   ActionSkills,
 } from "./models/CharacterModel";
 
+// export { jobs } from "./config/Job";
 export { DossierInterface, ArticleInterface } from "./models/DossierModel";
 
 // utils

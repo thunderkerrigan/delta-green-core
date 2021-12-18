@@ -2,11 +2,11 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "jsx": "react",
     "target": "ES5",
     "module": "CommonJS",
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
