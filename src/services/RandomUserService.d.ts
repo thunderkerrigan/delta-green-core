@@ -1,5 +1,5 @@
-declare type Nationality = "AU" | "BR" | "CA" | "CH" | "DE" | "DK" | "ES" | "FI" | "FR" | "GB" | "IE" | "IR" | "NO" | "NL" | "NZ" | "TR" | "US";
-declare type Gender = "male" | "female";
+type Nationality = "AU" | "BR" | "CA" | "CH" | "DE" | "DK" | "ES" | "FI" | "FR" | "GB" | "IE" | "IR" | "NO" | "NL" | "NZ" | "TR" | "US";
+type Gender = "male" | "female";
 interface RandomUser {
     seed: string;
     gender: Gender;

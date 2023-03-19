@@ -1,4 +1,3 @@
-import { model } from "mongoose";
 import { ClearanceLevel } from "./CharacterModel";
 
 export interface AssetInterface {}

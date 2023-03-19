@@ -109,7 +109,7 @@ export type ActionSkills =
   | "Navigation"
   | "Piloter";
 
-interface Clearance {
+export interface Clearance {
   innerColor: string;
   outerColor: string;
   value: string;
